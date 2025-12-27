@@ -112,7 +112,9 @@ register_button.addEventListener("click", async () => {
             alertify.notify('Successfully registered!', 'success', 5);
         } else if (response.status == 409) {
             alertify.notify('User already exists!', 'error', 5);
-        }
+        } else if (response.status == 400) {
+            alertify.notify("Password not valid", "error", 5);
+        }    
         else {
             alertify.notify('Server error!', 'error', 5);
         }
@@ -331,3 +333,4 @@ fetch('http://127.0.0.1:8000/reviews')
     .catch(error => {
         console.error('Error fetching reviews:', error);
     });
+
